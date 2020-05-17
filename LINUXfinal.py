@@ -1,5 +1,5 @@
 # THIS IS FOR LINUX OS
-from random import randint
+from random import randint, choice
 from os import system, name
 import readchar
 
@@ -33,25 +33,16 @@ def print_game(game):
         print("")
 
 
-def check_pow2(n):
-    temp = n
-    p = 0
-    while (not n % 2) and (n != 0):
-        n /= 2
-        p += 1
-    if temp == 2**p:
-        return True
-    else:
-        return False
-
-
 def spawn(game, n):
     count = 0
     while count == 0:
         rand1 = randint(0, n - 1)
         rand2 = randint(0, n - 1)
         if game[rand1][rand2] == 0:
-            game[rand1][rand2] = 2
+            if n > 5:
+                game[rand1][rand2] = choice((2, 4))
+            else:
+                game[rand1][rand2] = 2
             count += 1
 
 
@@ -68,15 +59,15 @@ def new_game():
         else:
             n = input("enter an integer >1\n")
     w = input("enter the target score 'w'\n")
-    while type(w) != int or (not check_pow2(w)):
+    while type(w) != int:
         if w == '':
             w = 2048
-        elif is_number(w) and not check_pow2(int(w)):
-            w = input("enter a number which is positive power of 2\n")
-        elif is_number(w) and check_pow2(int(w)):
+        elif is_number(w) and w > (4**(n**2)):
+            w = input("this score cannot be achieved on this board.. enter a smaller value\n")
+        elif is_number(w) and w <= (4**(n**2)):
             w = int(w)
         else:
-            w = input("enter a number which is positive power of 2\n")
+            w = input("enter a number\n")
     game = [[0 for i in range(0, n)]for i in range(0, n)]
     spawn(game, n)
     clear()
@@ -191,8 +182,10 @@ def new_game():
                 for j in range(0, n - 1):
                     if game[i][j] == game[i][j+1] or game[i][j] == game[i+1][j]:
                         move_possible = True
-                    elif game[n-1][n-1] == game[n-1][n-2] or game[n-1][n-1] == game[n-2][n-1]:
-                        move_possible = True
+                    else:
+                        for i in range(0, n-1):
+                            if game[n-1][i] == game[n-1][i+1] or game[i][n-1] == game[i+1][n-1]:
+                                move_possible = True
         if not move_possible:
             lost = True
             print("YOU LOST!!")
