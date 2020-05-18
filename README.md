@@ -1,12 +1,12 @@
 # 2048-game    
 Ivlabs 2048 project    
-Both linux and windows program work in exactly same manner, however, the linux progarm uses readchar library to take moves as input without pressing enter, on the other hand windows program uses msvcrt library for the same.    
+The program works on both linux and windows os, the linux progarm uses readchar library to take moves as input without pressing enter, on the other hand windows program uses msvcrt library for the same.    
 In the first step user is asked to choose an option from PLAY and QUIT.    
 <img src="pics/step1.jpg">
-option "1" starts whereas "2" quits the game, any other input is considered as invalid.    
-In the second step user is asked to eneter SIZE OF BOARD"n". Pressing ENTER without giving any value will create board of default size"5".    
+option "1"- starts whereas option "2"- quits the game, any other input is considered as invalid.    
+In the second step user is asked to eneter SIZE OF BOARD"n".It takes any integer input greater than "1"(since making a 1x1 game is pointless). Pressing ENTER without giving any value will create board of default size"5".    
 <img src="pics/step2.jpg">
-Similarly, input is taken in third step which desides target score"w". Default score here is 2048 if user does not pass any input and presses enter.    
+Similarly, input is taken in third step which desides target score"w".It takes input ranging from 2 - 2^n^2 (since it is the maximum score possible on board of size "n"). Default score here is 2048 if user does not pass any input and presses enter.    
 <img src="pics/step3.jpg">
 After the value of "w" is passed the game commenses, thereafter, all the MOVES are taken WITHOUT the need of pressing ENTER.    
 <img src="pics/step4.jpg">
