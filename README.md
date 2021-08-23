@@ -1,5 +1,9 @@
 # 2048-game  
-The program works on both linux and windows os, on the linux os the progarm uses "readchar" library to take moves as input without pressing enter, and on windows os it uses "msvcrt" library for the same.
+The program works on both linux and windows os, on the linux OS the progarm uses "readchar" library to take moves as input without pressing enter, and on windows it uses "msvcrt" library for the same.
+
+Customizations possible:
+* Board size
+* Target score
 
 The game is played using (keys):  
 W - :arrow_up_small:UP  
