@@ -1,5 +1,5 @@
 # 2048-game  
-The program works on both linux and windows os, on the linux OS the progarm uses "readchar" library to take moves as input without pressing enter, and on windows it uses "msvcrt" library for the same.
+The program works on both linux and windows OS.
 
 Customizations possible:
 * Board size
